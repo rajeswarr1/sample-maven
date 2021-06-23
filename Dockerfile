@@ -1,4 +1,5 @@
 FROM openjdk:11-jre-slim
-COPY --from=build /target/jb-hello-world-maven-0.1.0.jar /usr/local/lib/sample-maven.jar
+RUN ls -lrt
+COPY --from=build target/jb-hello-world-maven-0.1.0.jar /usr/local/lib/sample-maven.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/sample-maven.jar"]
